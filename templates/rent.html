@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'head.html' %}
+</head>
+<body id="body-white">
+    <section class="nav-relative">
+        {% include 'navbar.html' %}
+        <div class="container-one">
+            <div class="our_brands">
+                <h2> <span>Our</span> Brands </h2>
+                <div class="carlogo">
+                    <a><img src="{% static 'images/mercedes logo.png' %}" class="carlogoimg"></a>
+                    <a><img src="{% static 'images/bmw logo.jpg' %}" class="carlogoimg"></a>
+                    <a><img src="{% static 'images/Ford-Logo.png' %}" class="carlogoimg"></a>
+                    <a><img src="{% static 'images/toyota_logo-removebg-preview.png' %}" class="carlogoimg"></a>
+                    <a><img src="{% static 'images/suzuki logo.jpg' %}" class="carlogoimg"></a>
+                    <a><img src="{% static 'images/mazda logo.png' %}" class="carlogoimg"></a>
+                </div>
+            </div>
+            <div class="our_cars">
+                {% for i in cars %}
+                <div class="car">
+                    <div class="img-car"><img src="{{ i.image.url }}" style="width: 250px"></div>
+                    <div class="info">
+                        <div class="display-flex">
+                            <h4>{{ i.name }}</h4>
+                            <h4>Price:
+                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                {{ i.price }}/day</h4>
+                        </div>
+                        <div class="display-flex">
+                            <h4>{{ i.category.category }}</h4>
+                            <h4>Year: {{ i.year }}</h4>
+                        </div>
+                        <div class="display-flex">
+                            <h4>Gearbox</h4>
+                            <h4>{{ i.gearbox }}</h4>
+                        </div>
+                        <div class="display-flex">
+                            <h4>Seats</h4>
+                            <h4>{{ i.seats }}</h4>
+                        </div>
+                        <div class="display-flex">
+                            <h4>Fuel</h4>
+                            <h4>{{ i.fuel }}</h4>
+                        </div>
+                        <a href="/rent_form/?id={{ i.id }}" class="rent-button">Rent Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+
+</body>
+</html>

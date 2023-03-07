@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'head.html' %}
+</head>
+<body id="rentform_body">
+<nav class="nav_rentform">
+    {% include 'navbar.html' %}
+</nav>
+
+    <div class="container_rentform">
+        <div class="rentform rentform1">
+            <form method="post" action="/rent_form/">
+
+                <div class="label_form">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Fullname" name="fullname" required>
+                </div>
+                 <div class="label_form">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Email" name="email" required>
+                </div>
+                 <div class="label_form">
+                    <label for="phone">Phone</label>
+                    <input type="tel" placeholder="Number" required>
+                </div>
+                 <div class="label_form">
+                     <h6>Pickup location</h6>
+                    <div>
+                     <input type="radio" required name="city" id="vlora" value="abc">
+                        <label>Vlore</label>
+
+                    </div>
+                     <div>
+                     <input type="radio" required name="city" id="tirana" value="ab">
+                        <label>Tirane</label>
+                     </div>
+
+                </div>
+                <div class="label_form">
+                    <h6>Pickup Date</h6>
+                    <input type="date">
+                </div>
+                <div class="label_form">
+                    <h6>Return Date</h6>
+                    <input type="date">
+                </div>
+                <button class="rentform-button">Rent Now</button>
+            </form>
+        </div>
+    </div>
+<footer class="footer_rentform">
+    {% include 'footer.html' %}
+</footer>
+
+</body>
+</html>

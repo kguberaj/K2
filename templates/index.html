@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        {% include 'head.html' %}
+    </head>
+<body>
+    <!-- Header -->
+<header>
+
+    {% include 'navbar.html' %}
+    <div class="h1div"><h1>WHEELS THAT YOU WANT</h1></div>
+    <div class="background"></div>
+</header>
+     <!-- End of Header -->
+     <!-- First Section -->
+<section class="section1" id="....">
+    <div class="container-one">
+        <div class="form">
+            <form class="form1" action="/search/" method="post">
+                {% csrf_token %}
+                <select name="pickup" id="" required>
+                    <option disabled selected>PICKUP</option>
+                    <option value="Tirane">Tirane</option>
+                    <option value="Vlore">Vlore</option>
+                </select>
+                <select name="returnplace" id="" required>
+                    <option disabled selected>RETURN</option>
+                    <option value="Tirane">Tirane</option>
+                    <option value="Vlore">Vlore</option>
+                </select>
+
+                <input type="date" placeholder="" name="pickupdate" required>
+                <input class="dataInput" type="date" placeholder="" name="returndate" required>
+                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+     </div>
+</section>
+      <!-- End of First Section -->
+<section class="section2">
+    <div class="h3div">
+        <h3>Top Deals</h3>
+    </div>
+
+    <div class="container-2 container">
+       {% for i in top_deals|slice:"4" %}
+        <div class=" cars"><img src="{{ i.deals.image.url }}"></div>
+         {% endfor %}
+    </div>
+
+    <div class="categories-div">
+        <h3>CATEGORIES</h3>
+    </div>
+         <div class="container-one">
+        <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        {% for i in category %}
+      <div class="swiper-slide">
+        <img src="{{i.image.url}}">
+          <h3>{{ i.category }}</h3>
+      </div>
+         {% endfor %}
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+     </div>
+
+
+</section>
+
+
+<section class="section3">
+
+    <div class="map-flex">
+    <div class="info-about">
+        <h1 class="about-u">ABOUT US</h1>
+        <p>Surprice Car Rentals is a constantly growing car rental brand, which has as priority to provide quality services at affordable rates and flexible terms and conditions, combined with real 24 hours support. This has established us as one of the most competitive companies in the market. We are very clear on the terms and conditions of our rentals, with no hidden costs and many offers for our loyal customers and cooperators.</p>
+
+
+
+    </div>
+<!--
+    <div class="location-pos">
+        <div class="location"><h3>LOCATION</h3></div>
+-->
+        <div class="map-div">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9707.761309077794!2d19.478493839889314!3d40.459131229048126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xad360f9e6dcbe260!2zNDDCsDI3JzM2LjkiTiAxOcKwMjgnNTguOCJF!5e0!3m2!1sit!2s!4v1671650021170!5m2!1sit!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+
+
+</section>
+<!--
+    <section class="section section4">
+        <div class="container-one">
+        </div>
+    </section>
+-->
+      <!-- Footer -->
+ <!-- Footer -->
+         <footer>
+               {% include 'footer.html' %}
+            </footer>
+
+        <!-- End of Footer -->
+      <!-- End of Footer -->
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+ <!-- Initialize Swiper -->
+ {% include 'scripts.html' %}
+
+    </body>
+</html>

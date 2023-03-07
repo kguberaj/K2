@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        {% include 'head.html' %}
+    </head>
+<body>
+
+    <form action="/register/" method="POST">
+                    {% csrf_token %}
+					<label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="name" placeholder="Name" required>
+					<input type="text" name="surname" placeholder="Surname" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="password" placeholder="Password" required="">
+                    <input type="password" name="confirmpassword" placeholder="Confirm Password" required="">
+					<button>Sign up</button>
+				</form>
+
+ {% include 'scripts.html' %}
+</body>
+</html>
